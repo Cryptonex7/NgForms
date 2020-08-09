@@ -1,0 +1,26 @@
+<h1>Hello Ng</h1>
+<form [formGroup]="this.form" (ngSubmit)="onSubmit()">
+  <div class="name">
+    <label for="name">Name: </label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+  <div class="age">
+    <label for="age">Age: </label>
+    <input type="number" id="age" formControlName="age" />
+  </div>
+  <div class="gender">
+    <h4>Gender</h4>
+    <label>
+      <input type="radio" id="gender" value="M" formControlName="gender" /> Male
+    </label>
+    <label>
+      <input type="radio" id="gender" value="F" formControlName="gender" />
+      Female
+    </label>
+    <label>
+      <input type="radio" id="gender" value="O" formControlName="gender" />
+      Other
+    </label>
+  </div>
+  <button type="submit" [disabled]="this.form.invalid">Submit</button>
+</form>
