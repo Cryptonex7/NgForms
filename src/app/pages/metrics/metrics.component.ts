@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Citizen } from '../../models/Citizen.model';
+import { API_URL } from '../../utils/constants';
 @Component({
   selector: 'app-metrics',
   templateUrl: './metrics.component.html',
@@ -11,11 +12,9 @@ export class MetricsComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http
-      .get('https://crypto-spring-boot.herokuapp.com/citizen')
-      .subscribe((res: Citizen[]) => {
-        console.table(res);
-        this.citizens = res;
-      });
+    this.http.get(`${API_URL}/citizen`).subscribe((res: Citizen[]) => {
+      console.table(res);
+      this.citizens = res;
+    });
   }
 }
